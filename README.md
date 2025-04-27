@@ -14,7 +14,7 @@
         <!-- Biodata Cards -->
         <!-- Repeat this structure for 39 individuals -->
         <div class="bg-white shadow rounded-lg p-4">
-            <img src="foto-taufiqul.jpg" alt="Foto" class="w-full h-128 object-cover rounded-lg">
+            <img src="foto-taufiqul.JPG" alt="Foto" class="w-full h-128 object-cover rounded-lg">
             <h2 class="mt-4 text-l font-bold">A. Taufiqul Hakiem</h2>
             <p><strong>TTL:</strong> 01 Januari 2005</p>
             <p><strong>Alamat:</strong> Kunjang, Kediri, Jawa Timur</p>

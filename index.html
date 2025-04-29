@@ -5,14 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Six Animal</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main, header, section {
+            flex: 1;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('header, main, section');
+            sections.forEach(section => {
+                section.style.display = section.id === sectionId ? 'block' : 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home'); // Default to showing home
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.target.getAttribute('href').substring(1);
+                    showSection(targetId);
+                });
+            });
+        });
+    </script>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-blue-600 text-white py-4">
-        <h1 class="text-center text-2xl font-bold">Six Animal, Kelas Go International</h1>
+    <!-- Navbar -->
+    <nav class="bg-green-700 text-white py-3 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#home" class="text-xl font-bold">Six Animal</a>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="hover:text-gray-200">Home</a></li>
+                <li><a href="#members" class="hover:text-gray-200">Member</a></li>
+                <li><a href="#contact" class="hover:text-gray-200">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header with Kaleidoscope Photos -->
+    <header id="home" class="bg-gray-600 text-white py-8">
+        <h1 class="text-center text-2xl font-bold mb-4">Welcome to Six Animal</h1>
+        <div class="container mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
+            <img src="foto-bersama1.jpg" alt="Foto Bersama 1" class="rounded-lg shadow-md">
+            <img src="foto-bersama2.jpg" alt="Foto Bersama 2" class="rounded-lg shadow-md">
+            <img src="foto-bersama3.jpg" alt="Foto Bersama 3" class="rounded-lg shadow-md">
+            <img src="foto-bersama4.jpg" alt="Foto Bersama 4" class="rounded-lg shadow-md">
+            <img src="foto-bersama5.jpg" alt="Foto Bersama 5" class="rounded-lg shadow-md">
+            <img src="foto-bersama6.jpg" alt="Foto Bersama 6" class="rounded-lg shadow-md">
+            <img src="foto-bersama7.jpg" alt="Foto Bersama 7" class="rounded-lg shadow-md">
+            <img src="foto-bersama8.jpg" alt="Foto Bersama 8" class="rounded-lg shadow-md">
+        </div>
     </header>
-    <main class="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Biodata Cards -->
-        <!-- Repeat this structure for 39 individuals -->
+
+    <!-- Main Content: Members -->
+    <main id="members" class="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" style="display: none;">
         <div class="bg-white shadow rounded-lg p-4">
             <img src="foto-taufiqul.JPG" alt="Foto" class="w-full h-128 object-cover rounded-lg">
             <h2 class="mt-4 text-l font-bold">A. Taufiqul Hakiem</h2>
@@ -31,7 +84,7 @@
             <p><strong>Kesan:</strong> Tetap menjadi baik, meskipun tidak diperlakukan baik.</p>
             <p><strong>Instagram:</strong> <a href="https://instagram.com/azizmakarim_" class="text-blue-500">@azizmakarim_</a></p>
         </div>
-<div class="bg-white shadow rounded-lg p-4">
+        <div class="bg-white shadow rounded-lg p-4">
             <img src="foto-alwi.jpg" alt="Foto" class="w-full h-128 object-cover rounded-lg">
             <h2 class="mt-4 text-l font-bold">Abdul Ghofur Alwi</h2>
             <p><strong>TTL:</strong> Kediri, 18 Agustus 2005</p>
@@ -273,7 +326,7 @@
             <p><strong>Ribath:</strong> An Najiyah 2</p>
             <p><strong>Kesan:</strong> Jangan meremehkan kitab kecil walau sekedar kitab matan.</p>
             <p><strong>Instagram:</strong><a href="https://instagram.com/a_zieq" class="text-blue-500">@a_zieq</a></p>
-        </div
+        </div>
         <div class="bg-white shadow rounded-lg p-4">
             <img src="foto-syauqon.jpg" alt="Foto" class="w-full h-128 object-cover rounded-lg">
             <h2 class="mt-4 text-l font-bold">Ahmad Syauqon Firdaus</h2>
@@ -348,7 +401,7 @@
         </div>
         <div class="bg-white shadow rounded-lg p-4">
             <img src="foto-daus.jpg" alt="Foto" class="w-full h-128 object-cover rounded-lg">
-            <h2 class="mt-4 text-l font-bold"> Arizky Firdaus</h2>
+            <h2 class="mt-4 text-l font-bold"> Arrizky Firdaus</h2>
             <p><strong>TTL:</strong> Jombang, 23 Agustus 2004</p>
             <p><strong>Alamat:</strong> Bandarkedungmulyo, Jombang, Jawa Timur</p>
             <p><strong>Ribath:</strong> An Najiyah 2</p>
@@ -364,10 +417,20 @@
             <p><strong>Kesan:</strong> - </p>
             <p><strong>Instagram:</strong> <a href="https://instagram.com/otet_mujarab424" class="text-blue-500">@otet_mujarab424</a></p>
           </div>
-        <!-- Add 38 more cards here with respective data -->
     </main>
+    <!-- Contact Section -->
+    <section id="contact" class="py-8 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold">Contact Us</h2>
+            <a href="https://instagram.com/six.animal" class="inline-block mt-4 bg-green-500 text-white px-6 py-2 rounded shadow hover:bg-green-600">
+                Visit Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-4 mt-4">
-        <p class="text-center">&copy; Six Animal part of Bramasata 2025</p>
+        <p class="text-center">&copy; 2025 Biodata 39 Orang</p>
     </footer>
 </body>
 </html>
